@@ -55,6 +55,8 @@ function ChatMessage({
     </Tooltip>
   );
 
+  console.log({ message });
+
   return (
     <Group
       gap="lg"
@@ -79,7 +81,11 @@ function ChatMessage({
         bg="var(--mantine-color-gray-0)"
       >
         <Group gap="md" justify="space-between" align="top">
-          <Markdown className={classes.mdMessage}>{message.content}</Markdown>
+          <Markdown className={classes.mdMessage}>
+            {Array.isArray(message.content)
+              ? message.content[0]
+              : message.content}
+          </Markdown>
         </Group>
       </Paper>
 

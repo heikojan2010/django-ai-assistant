@@ -75,8 +75,37 @@ def create_message(
 
     # TODO: Check if we can separate the message creation from the chain invoke
     assistant = assistant_cls(user=user, request=request)
+    print("\n\ncontent", content, "\n\n")
+    # assistant_message = assistant.invoke(
+    #     {"input": content},
+    #     thread_id=thread.id,
+    # )
     assistant_message = assistant.invoke(
-        {"input": content},
+        # {
+        #     "input": HumanMessage(
+        #         content=[
+        #             content,
+        #             "describe the weather",
+        #             # {
+        #             #     "type": "image_url",
+        #             #     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/320px-Altja_j%C3%B5gi_Lahemaal.jpg",
+        #             # },
+        #         ],
+        #     )
+        # },
+        # [HumanMessage(content=content), HumanMessage(content="describe the weather")],
+        [
+            HumanMessage(
+                content=[
+                    content,
+                    "describe the weather",
+                    # {
+                    #     "type": "image_url",
+                    #     "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/320px-Altja_j%C3%B5gi_Lahemaal.jpg",
+                    # },
+                ],
+            )
+        ],
         thread_id=thread.id,
     )
     return assistant_message

@@ -21,12 +21,16 @@ export type ThreadMessageTypeEnum = 'human' | 'ai' | 'generic' | 'system' | 'fun
 export type ThreadMessagesSchemaOut = {
     id: string;
     type: ThreadMessageTypeEnum;
-    content: string;
+    content: string | Array<(string | {
+    [key: string]: unknown;
+})>;
 };
 
 export type ThreadMessagesSchemaIn = {
     assistant_id: string;
-    content: string;
+    content: string | Array<(string | {
+    [key: string]: unknown;
+})>;
 };
 
 export type DjangoAiAssistantListAssistantsResponse = Array<AssistantSchema>;

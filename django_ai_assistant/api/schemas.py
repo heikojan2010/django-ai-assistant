@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Union
 
 from django.utils import timezone
 
@@ -29,7 +30,7 @@ class ThreadSchemaIn(Schema):
 
 class ThreadMessagesSchemaIn(Schema):
     assistant_id: str
-    content: str
+    content: Union[str, list[Union[str, dict]]]
 
 
 class ThreadMessageTypeEnum(str, Enum):
@@ -44,4 +45,4 @@ class ThreadMessageTypeEnum(str, Enum):
 class ThreadMessagesSchemaOut(Schema):
     id: str  # noqa: A003
     type: ThreadMessageTypeEnum  # noqa: A003
-    content: str
+    content: Union[str, list[Union[str, dict]]]

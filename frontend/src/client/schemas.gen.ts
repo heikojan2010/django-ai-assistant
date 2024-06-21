@@ -84,8 +84,25 @@ export const $ThreadMessagesSchemaOut = {
             '$ref': '#/components/schemas/ThreadMessageTypeEnum'
         },
         content: {
-            title: 'Content',
-            type: 'string'
+            anyOf: [
+                {
+                    type: 'string'
+                },
+                {
+                    items: {
+                        anyOf: [
+                            {
+                                type: 'string'
+                            },
+                            {
+                                type: 'object'
+                            }
+                        ]
+                    },
+                    type: 'array'
+                }
+            ],
+            title: 'Content'
         }
     },
     required: ['id', 'type', 'content'],
@@ -100,8 +117,25 @@ export const $ThreadMessagesSchemaIn = {
             type: 'string'
         },
         content: {
-            title: 'Content',
-            type: 'string'
+            anyOf: [
+                {
+                    type: 'string'
+                },
+                {
+                    items: {
+                        anyOf: [
+                            {
+                                type: 'string'
+                            },
+                            {
+                                type: 'object'
+                            }
+                        ]
+                    },
+                    type: 'array'
+                }
+            ],
+            title: 'Content'
         }
     },
     required: ['assistant_id', 'content'],
