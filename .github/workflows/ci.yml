@@ -91,19 +91,19 @@ jobs:
           COVERALLS_FLAG_NAME: node-coverage
           COVERALLS_PARALLEL: true
 
-      - name: Coveralls Parallel
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel: true
-          flag-name: node-coverage
-          allow-empty: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COVERALLS_SERVICE_NAME: "github-actions"
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-          COVERALLS_FLAG_NAME: node-coverage
-          COVERALLS_PARALLEL: true
+      # - name: Coveralls Parallel
+      #   uses: coverallsapp/github-action@v2
+      #   with:
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     parallel: true
+      #     flag-name: node-coverage
+      #     allow-empty: true
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     COVERALLS_SERVICE_NAME: "github-actions"
+      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      #     COVERALLS_FLAG_NAME: node-coverage
+      #     COVERALLS_PARALLEL: true
 
   coveralls:
     name: Coveralls
