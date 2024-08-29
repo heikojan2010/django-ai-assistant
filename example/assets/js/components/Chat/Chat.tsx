@@ -24,7 +24,8 @@ import { getHotkeyHandler } from "@mantine/hooks";
 import Markdown from "react-markdown";
 
 
-import { ThreadMessage } from 'django-ai-assistant-client';
+import { ApiError } from '../../../../../frontend/src/client/core/ApiError';
+import { ThreadMessage, Thread } from '../../../../../frontend/src/client'
 
 import {
   

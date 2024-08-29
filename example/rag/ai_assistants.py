@@ -5,7 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from django_ai_assistant import AIAssistant
 from rag.models import DjangoDocPage
 
-
+local_llm = "llama3"
 class DjangoDocsAssistant(AIAssistant):
     id = "django_docs_assistant"  # noqa: A003
     name = "Django Docs Assistant"
@@ -19,8 +19,21 @@ class DjangoDocsAssistant(AIAssistant):
         "{context}"
         "---END OF CONTEXT---\n"
     )
-    model = "llama3"
-    has_rag = True
+    model = "llama3.1"
+    has_rag = True 
+
+    def get_llm(self):
+        model = self.get_model()
+        temperature = self.get_temperature()
+        model_kwargs = self.get_model_kwargs()
+        return ChatOllama(
+            model_name=model,
+            temperature=temperature,
+            model_kwargs=model_kwargs,
+            timeout=None,
+            max_retries=2,
+        )
+        
 
     def get_retriever(self) -> BaseRetriever:
         # NOTE: on a production application, you should persist or cache the retriever,

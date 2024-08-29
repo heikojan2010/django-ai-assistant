@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     "rag",
     "issue_tracker",
     
-       
 
 
 ]

@@ -28,7 +28,7 @@ import {
   useAssistantList,
 } from "django-ai-assistant-client";
 
-
+import { ApiError } from "../../../frontend/src/client";
 
 configAIAssistant({ BASE: "ai-assistant" });
 
