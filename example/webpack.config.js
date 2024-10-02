@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BundleTracker = require("webpack-bundle-tracker");
@@ -23,6 +24,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL || ''),
+  }),
     new BundleTracker({ path: __dirname, filename: "webpack-stats.json" }),
     new MiniCssExtractPlugin(),
   ],

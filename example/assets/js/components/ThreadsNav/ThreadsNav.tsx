@@ -11,6 +11,11 @@ import { IconPlus, IconTrash } from "@tabler/icons-react";
 import classes from "./ThreadsNav.module.css";
 
 import { Thread } from "django-ai-assistant-client";
+import NeuralNetwork from "../Chat/NeuralNetwork";
+import { Canvas } from "@react-three/fiber";
+
+
+
 
 export function ThreadsNav({
   threads,
@@ -104,6 +109,16 @@ export function ThreadsNav({
             <Loader className={classes.threadLinkInfo} color="blue" size="sm" />
           )}
         </div>
+      </div>
+
+
+      <div>
+
+      <Canvas camera={{ position: [0, 0, 20] }}>
+      <color attach="background" args={["black"]} />
+
+                  <NeuralNetwork />
+                </Canvas>
       </div>
     </nav>
   );

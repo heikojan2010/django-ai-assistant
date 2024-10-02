@@ -26,13 +26,14 @@ import Markdown from "react-markdown";
 
 import { ApiError } from '../../../../../frontend/src/client/core/ApiError';
 import { ThreadMessage, Thread } from '../../../../../frontend/src/client'
-
+import { Canvas } from '@react-three/fiber'
 import {
   
   useAssistant,
   useMessageList,
   useThreadList,
 } from "django-ai-assistant-client";
+import NeuralNetwork from "./NeuralNetwork";
 
 function ChatMessage({
   message,
@@ -233,17 +234,25 @@ export function Chat({ assistantId }: { assistantId: string }) {
                 zIndex={1000}
                 overlayProps={{ blur: 2 }}
               />
+              
               {isThreadSelected ? (
+                <div>
                 <ChatMessageList
                   messages={messages || []}
                   deleteMessage={deleteMessage}
                 />
+                
+                
+                </div>
+               
               ) : (
                 <Text c="dimmed">
                   Select or create a thread to start chatting.
                 </Text>
               )}
+              
             </ScrollArea>
+            
             <Textarea
               mt="auto"
               mb="3rem"

@@ -3,17 +3,21 @@
   height: 100vh;
   width: calc(100% - rem(250px));
   margin-left: auto;
+  z-index: 100;
 }
 
 .chatContainer {
   max-width: calc(51.25rem * var(--mantine-scale));
   height: 100%;
+  z-index: 100;
 }
 
 .chat {
   height: 100%;
+  z-index: 100;
 }
 
 .mdMessage p {
   margin: 0;
+  z-index: 100;
 }
