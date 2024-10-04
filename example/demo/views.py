@@ -25,8 +25,6 @@ from django_ai_assistant.models import Thread
 def react_index(request, **kwargs):
     return render(request, "demo/react_index.html")
 
-def sse_streaming_embedding_view(request, **kwargs):
-    return render(request, "demo/react_index.html")
 
 
 class BaseAIAssistantView(TemplateView):
@@ -108,8 +106,11 @@ class AIAssistantChatThreadView(BaseAIAssistantView):
             content=message.content,
             request=request,
         )
+
+
+        """
         def sse_streaming_embedding_view(self, request, *args, **kwargs):
-            """Streams embeddings in real-time using Server-Sent Events."""
+            #Streams embeddings in real-time using Server-Sent Events.
             assistant_id = self.get_assistant_id()
             thread_id = self.kwargs["thread_id"]
             thread = get_object_or_404(Thread, id=thread_id)
@@ -125,7 +126,7 @@ class AIAssistantChatThreadView(BaseAIAssistantView):
             query = request.POST.get("content", '')  # Use content from POST request
 
             def stream_embeddings():
-                """Generator function to yield streaming embeddings."""
+                #Generator function to yield streaming embeddings.
                 yield "event: message\n"
                 yield f"data: Starting embedding stream for query: {query}\n\n"
 
@@ -145,4 +146,4 @@ class AIAssistantChatThreadView(BaseAIAssistantView):
         return redirect("chat_thread", thread_id=thread_id)
 
 
-    
+    """

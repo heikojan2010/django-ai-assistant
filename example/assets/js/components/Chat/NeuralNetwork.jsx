@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import Geo from './Geo.tsx';
 import * as THREE from 'three';
 
-export default function NeuralNetwork({ numLayers = 3, props }) {
+export default function NeuralNetwork({ numLayers = 3 }) {
   const groupRef = useRef();
   const particlesRef = useRef();
   const linesGeometryRef = useRef();

@@ -16,7 +16,7 @@ urlpatterns = [
     path("", views.react_index, {"resource": ""}),
     path("<path:resource>", views.react_index),
 
-    path('sse/embedding/', views.sse_streaming_embedding_view, name='sse_embedding') #for the embeddigns 'stream' visualization
+    #path('sse/embedding/', views.sse_streaming_embedding_view, name='sse_embedding') #for the embeddigns 'stream' visualization
 ]
 
 

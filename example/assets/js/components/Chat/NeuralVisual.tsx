@@ -43,7 +43,7 @@ function NeuralVisual() {
       <Suspense>
       <color attach="background" args={["black"]} />
 
-    <NeuralNetwork  />
+    <NeuralNetwork numLayers={3} />
 
  
 
