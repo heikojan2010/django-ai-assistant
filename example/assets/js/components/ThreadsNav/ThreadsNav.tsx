@@ -114,11 +114,7 @@ export function ThreadsNav({
 
       <div>
 
-      <Canvas camera={{ position: [0, 0, 20] }}>
-      <color attach="background" args={["black"]} />
-
-                  <NeuralNetwork />
-                </Canvas>
+     
       </div>
     </nav>
   );

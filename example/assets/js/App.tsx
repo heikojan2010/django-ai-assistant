@@ -1,6 +1,7 @@
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
-
+import { Canvas } from "@react-three/fiber";
+import NeuralNetwork from "./components/Chat/NeuralNetwork";
 import React, { useEffect, useState } from "react";
 import {
   Button,
@@ -23,7 +24,6 @@ import {
 import { Chat } from "@/components";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import {
-
   configAIAssistant,
   useAssistantList,
 } from "django-ai-assistant-client";
@@ -31,7 +31,6 @@ import {
 import { ApiError } from "../../../frontend/src/client";
 
 configAIAssistant({ BASE: "ai-assistant" });
-
 
 const theme = createTheme({});
 
@@ -45,7 +44,17 @@ const PageWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Notifications position="top-right" />
-      {children}
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {children}
+      </div>
+      <div id="neural-network-background" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+        <>
+        <Canvas camera={{ position: [0, 0, 20] }}>
+          <color attach="background" args={["black"]} />
+          <NeuralNetwork numLayers={3} />
+        </Canvas>
+        </>
+      </div>
     </>
   );
 };

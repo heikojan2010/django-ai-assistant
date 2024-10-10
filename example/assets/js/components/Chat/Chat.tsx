@@ -33,7 +33,6 @@ import {
   useMessageList,
   useThreadList,
 } from "django-ai-assistant-client";
-import NeuralNetwork from "./NeuralNetwork";
 
 function ChatMessage({
   message,

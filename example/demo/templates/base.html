@@ -13,9 +13,22 @@
     {% endblock %}
 
     {% render_bundle 'main' 'css' %}
+    <style>
+      #neural-network-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+    </style>
   </head>
   <body>
     {% csrf_token %}
+    <div id="neural-network-background"></div>
+    <div id="react-app"></div>
     {% block content %}{% endblock %}
+    {% render_bundle 'main' 'js' %}
   </body>
 </html>
